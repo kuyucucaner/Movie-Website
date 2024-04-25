@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-video-container.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-video-container.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+
+</head>
+<body>
+    <div class="movie-video-container">
+        <iframe class="movie-video" width="560" height="315" src="<%= movie.MovieTrailer %>" frameborder="0" allowfullscreen></iframe>
+        <div class="movie-video-share" id="movie-video-share">
+            <h3 class="movie-video-share-text"><i class="bi bi-share-fill"></i> Paylaş</h3>
+            <button class="movie-video-facebook-button"><i class="bi bi-facebook"></i> Facebook</button>
+            <button class="movie-video-twitter-button"><i class="bi bi-twitter-x"></i> Twitter</button>
+            <button class="movie-video-whatsapp-button"><i class="bi bi-whatsapp"></i> Whatsapp</button>
+            <button class="movie-video-like-button" id="movie-video-like-button"><i class="bi bi-hand-thumbs-up-fill"></i> Beğendim (<%= movie.LikeCount %>)</button>
+            <button class="movie-video-dislike-button" id="movie-video-dislike-button"><i class="bi bi-hand-thumbs-down-fill"></i> Beğenmedim (<%= movie.DislikeCount %>)</button>
+        </div>
+    </div>
+    <script src='/javascripts/add-movie-like.js'></script>
+    <script src='/javascripts/add-movie-dislike.js'></script>
+
+    
+
+</body>
+</html>

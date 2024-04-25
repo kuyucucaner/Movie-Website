@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+  }
+  
+  .categories-navbar {
+    background-color: #6e6e6e;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  }
+  
+  .categories-link {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    margin-right: 10px; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .categories-link:hover {
+    color: #00ffbf;
+  }
+  
+  .categories-link.active {
+    background-color: #00c291;
+    border-radius: 5px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .categories-link {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .categories-link {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  
+    .categories-link:last-child {
+      margin-bottom: 0; /* Son link için alt boşluk olmasın */
+    }
+  }

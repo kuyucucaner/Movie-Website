@@ -1,0 +1,99 @@
+
+.movie-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .movie-video-share {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .movie-video {
+    width: 97%;
+    height: 500px;
+  }
+  
+  
+  
+  
+  .movie-video-share {
+    background-color: #464646;
+    width: 97%;
+  }
+  
+  .movie-video-share-text i {
+    font-size: 15px;
+  }
+  
+  .movie-video-share-text {
+    color: white;
+    padding-left: 15px;
+  }
+  
+  .movie-video-facebook-button {
+    padding: 5px 10px;
+    margin-left: 15px;
+    font-size: 13px;
+    background-color: #3b5999;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .movie-video-facebook-button:hover {
+    background-color: #314a80;
+  }
+  .movie-video-whatsapp-button {
+    padding: 5px 10px;
+    margin-left: 7px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #42c057;
+    color: white;
+    border-radius: 3px;
+  }
+  .movie-video-whatsapp-button:hover{
+    background-color: #37a049;
+  }
+  .movie-video-twitter-button {
+    padding: 5px 10px;
+    margin-left: 7px;
+    font-size: 13px;
+    background-color: #000000;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .movie-video-twitter-button:hover{
+    background-color: #181818;
+  }
+  .movie-video-like-button {
+    padding: 5px 10px;
+    margin-left: auto;
+    font-size: 13px;
+    background-color: #666666;
+    border-bottom: 2px solid rgb(0, 177, 0);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .movie-video-like-button:hover{
+    background-color: #7c7c7c;
+  }
+  .movie-video-dislike-button {
+    padding: 5px 10px;
+    margin-left: 7px;
+    background-color: #666666;
+    border-bottom: 2px solid rgb(141, 0, 0);
+    color: #fff;
+    margin-right: 10px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .movie-video-dislike-button:hover{
+    background-color: #7c7c7c;
+  }

@@ -1,0 +1,165 @@
+.movie-detail-user-comments-nocomment {
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.movie-detail-user-comments-spoiler {
+    border: 2px solid rgb(187, 63, 63); /* Uyarı için kırmızı bir kenarlık ekleyin */
+    background-color: rgb(172, 85, 85); /* Uyarı için açık kırmızı bir arka plan rengi */
+    border-radius: 5px;
+    padding: 10px; /* Uyarıyı içeren alanın etrafına biraz dolgu ekleyin */
+    position: absolute; /* Pozisyonu göreceli yapın */
+    z-index: 111; /* Uyarının diğer öğelerin üstünde olmasını sağlayın */
+    height: 90%;
+    width:98%;
+}
+
+.spoiler-icon {
+    position: absolute; /* İkonu mutlak bir konuma yerleştirin */
+    top: 50%; /* Yüksekliğin yarısında */
+    left: 50%; /* Genişliğin yarısında */
+    color: white;
+    font-size: 30px;
+    padding-bottom: 10px;
+    transform: translate(-50%, -50%); /* İkonu dikey ve yatay olarak ortala */
+    cursor: pointer; /* İkonun fare imleciyle tıklanabilir olduğunu belirtin */
+}
+
+.spoiler-text {
+    font-weight: bold; /* Metni kalın yapın */
+    text-align: center; /* Metni ortala */
+    margin-top: 20px; /* Üstten 20px mesafe */
+    position: absolute; /* Metni mutlak bir konuma yerleştirin */
+    color: white;
+
+    top: 50%; /* Yüksekliğin yarısında */
+    left: 50%; /* Genişliğin yarısında */
+    transform: translate(-50%, -50%); /* Metni dikey ve yatay olarak ortala */
+}
+
+.movie-detail-user-comments {
+    background-color: #666;
+    margin: 20px;
+    border-radius: 4px;
+    position: relative; /* Yerleştirme türünü göreceli yapın */
+}
+
+.movie-detail-user-comments-header {
+    border-bottom: 1px solid #9e9e9e;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.movie-detail-user-comments-header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-detail-user-comments-header-right {
+    margin-left: auto;
+}
+
+.movie-detail-user-comments-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.movie-detail-user-comments-name {
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+}
+
+.movie-detail-user-comments-date {
+    margin: 0;
+    color: #cacaca;
+}
+
+.movie-detail-user-comments-role {
+    margin: 5px 0;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #00ad82;
+    padding: 10px;
+    border-radius: 16px;
+    color: #00ffbf;
+    background-color: #838383;
+}
+
+.movie-detail-user-comments-text {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.movie-detail-user-comments-body {
+    border-bottom: 1px solid #9e9e9e;
+    max-height: 100px; /* İçerik için maksimum yükseklik belirleyin */
+    overflow-y: auto; /* Gerektiğinde kaydırma çubuğu görüntüle */
+    padding-left: 10px;
+}
+
+.movie-detail-user-comments-footer {
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    background-color: #636363;
+}
+
+.movie-detail-user-comments-footer-right {
+    margin-left: auto;
+}
+
+.movie-detail-user-comments-answer {
+    padding: 5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #949393;
+    transition: background-color 0.3s ease;
+}
+
+.movie-detail-user-comments-answer:hover {
+    background-color: #7a7a7a;
+}
+
+.movie-detail-user-comments-like {
+    padding: 5px 10px;
+    margin-left: auto;
+    font-size: 13px;
+    background-color: #949393;
+    border-bottom: 2px solid rgb(0, 177, 0);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.movie-detail-user-comments-like:hover {
+    background-color: #7c7c7c;
+}
+
+.movie-detail-user-comments-dislike {
+    padding: 5px 10px;
+    margin-left: 7px;
+    background-color: #949393;
+    border-bottom: 2px solid rgb(141, 0, 0);
+    color: #fff;
+    margin-right: 10px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.movie-detail-user-comments-dislike:hover {
+    background-color: #7c7c7c;
+}
+
+.movie-detail-user-comments-nocomment {
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}

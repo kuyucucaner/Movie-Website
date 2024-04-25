@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-comment.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-comment.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-comment-form.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-comment-form.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-comment-user.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-comment-user.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+
+</head>
+<body>
+   <div class="movie-detail-comment-container">
+    <div class="movie-detail-comment-header">
+        <h3 class="movie-detail-comment-title"><i class="bi bi-chat-text-fill"></i> Yorumlar</h3> 
+        <h4 class="movie-detail-comment-length"><%= numberOfComments %> YORUM</h4>
+    </div>
+    <div class="movie-detail-comment-form-container">
+        <form id="movie-detail-comment-form" action="/add-comment" method="POST">
+            <input type="hidden" id="movieId" name="movieId" value="<%= movie.ID %>">
+            <% if (userID && userName) { %>
+            <div class="movie-detail-comment-user">
+                <div class="movie-detail-comment-user-left">
+                    <textarea class="movie-detail-comment-form-textarea" id="commentText" name="commentText" required placeholder="Mesajınız*"></textarea>
+                </div>
+                <div class="movie-detail-comment-user-right">
+                    <input type="hidden" id="userId" name="userId" value="<%= userID %>">
+                    <input class="movie-detail-comment-form-input" type="text" id="guestName" name="guestName" value="<%= userName %>" placeholder="Kullanıcı Adı" disabled>
+                    <div class="movie-detail-comment-button-container">
+                        <input type="checkbox" id="spoiler-checkbox" class="spoiler-checkbox-input">
+                        <label for="spoiler-checkbox" class="spoiler-checkbox-label">Spoiler mı ?</label>
+                        <button type="submit" id="submit-button" class="submit-button"><i class="bi bi-send-check-fill"></i> Yorumu Gönder</button>
+                    </div>
+                </div>
+            </div>
+            <% } else { %>
+            <div class="movie-detail-comment-guest">
+                <div class="movie-detail-comment-guest-left">
+                    <textarea class="movie-detail-comment-form-textarea" id="commentText" name="commentText" required placeholder="Mesajınız*"></textarea>
+                </div>
+                <div class="movie-detail-comment-guest-right">
+                    <input class="movie-detail-comment-form-input" type="text" id="guestName" name="guestName" required placeholder="Adınız*">
+                    <input class="movie-detail-comment-form-input" type="email" id="guestEmail" name="guestEmail" required placeholder="Emailiniz*">
+                    <div class="movie-detail-comment-button-container">
+                        <input type="checkbox" id="spoiler-checkbox" class="spoiler-checkbox-input">
+                        <label for="spoiler-checkbox" class="spoiler-checkbox-label">Spoiler mı ?</label>
+                        <button type="submit" id="submit-button" class="submit-button"><i class="bi bi-send-check-fill"></i> Yorumu Gönder</button>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </form>
+    </div>
+    
+    
+    <% if (!comments || comments.length === 0) { %>
+        <p>Henüz hiç yorum yok.</p>
+<% } else { %>
+    <% if (Array.isArray(comments)) { %>
+        <% comments.forEach(comment => { %>
+            <% if (comment.IsSpoiler === true) { %>
+                <div class="movie-detail-user-comments">
+                    <div class="movie-detail-user-comments-spoiler">
+                        <div class="spoiler-icon" onclick="hideSpoiler(this)"><i class="bi bi-exclamation-circle"></i></div>
+                        <div class="spoiler-text">Dikkat! Bu yorum SPOILER içeriyor!</div>
+                    </div>
+                    <div class="movie-detail-user-comments-header">
+                        <img src="<%= comment.Photo || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSAIo-4aFKYXHbRXBR952Dhcg6kyNPM-RVjAsd8rYiw&s' %>" alt="<%= comment.UserName %>" class="movie-detail-user-comments-image">
+                        <div class="movie-detail-user-comments-header-left">
+                            <p id="movie-detail-comment-id" name="movie-detail-comment-id" hidden><%= comment.ID %></p>
+                            <p class="movie-detail-user-comments-name"><%= comment.UserName  || comment.GuestName %></p>
+                            <p class="movie-detail-user-comments-date"><%= new Date(comment.Timestamp).toLocaleDateString('tr-TR') %></p>
+                        </div>
+                        <div class="movie-detail-user-comments-header-right">
+                            <h4 class="movie-detail-user-comments-role"><%= comment.RoleName || 'Misafir' %></h4>
+                        </div>
+                    </div>
+                    <div class="movie-detail-user-comments-body">
+                        <p class="movie-detail-user-comments-text"><%= comment.CommentText %></p>
+                    </div>
+                    <div class="movie-detail-user-comments-footer">
+                        <button class="movie-detail-user-comments-answer" onclick="toggleComments('<%= comment.ID %>')"><i class="bi bi-reply"></i> Yanıtla</button>
+                        <button class="movie-detail-user-comments-like" data-comment-like-id="<%= comment.ID %>">
+                            <i class="bi bi-hand-thumbs-up-fill"></i> 
+                            <%= likesAndDislikes[comment.ID][0].LikeCount || 0 %> 
+                        </button>
+                        <button class="movie-detail-user-comments-dislike" data-comment-dislike-id="<%= comment.ID %>">
+                            <i class="bi bi-hand-thumbs-down-fill"></i> 
+                            <%= likesAndDislikes[comment.ID][0].DislikeCount || 0 %> 
+                        </button>
+                    </div>
+                    <div class="show-all-answers">
+                        <button class="show-all-answers-button" onclick="toggleAnswers('<%= comment.ID %>')"><i class="bi bi-caret-down-square"></i> Cevapları Göster</button>
+                        <div class="hidden-answer-section" id="comment-answer-section-<%= comment.ID %>">
+                            <form id="comment-answer-section-form-user" action="/add-comment-answer" method="POST">
+                                <input type="hidden" id="commentId" name="commentId" value="<%= comment.ID %>">
+                                <% if (userID && userName) { %>
+                                    <div class="comment-answer-section-user">
+                                        <div class="comment-answer-section-user-left">
+                                            <textarea class="comment-answer-section-form-textarea" id="commentText" name="commentText" required placeholder="Cevabınız*"></textarea>
+                                        </div>
+                                        <div class="comment-answer-section-user-right">
+                                            <input type="hidden" id="userId" name="userId" value="<%= userID %>">
+                                            <input class="comment-answer-section-form-input" type="hidden" id="guestName" name="guestName" value="<%= userName %>" placeholder="Kullanıcı Adı" disabled>
+                                            <div class="comment-answer-section-button-container">
+                                                <button type="submit" id="answer-submit-button" class="answer-submit-button"><i class="bi bi-reply-all-fill"></i> Cevapla</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } else { %>
+                                    <div class="comment-answer-section-guest">
+                                        <div class="comment-answer-section-guest-left">
+                                            <textarea class="comment-answer-section-form-textarea" id="commentText" name="commentText" required placeholder="Cevabınız*"></textarea>
+                                        </div>
+                                        <div class="comment-answer-section-guest-right">
+                                            <input class="comment-answer-section-form-input" type="text" id="guestName" name="guestName" required placeholder="Adınız*">
+                                            <input class="comment-answer-section-form-input" type="email" id="guestEmail" name="guestEmail" required placeholder="Emailiniz*">
+                                            <div class="comment-answer-section-button-container">
+                                                <button type="submit" id="answer-submit-button" class="answer-submit-button-guest"><i class="bi bi-reply-all-fill"></i> Cevapla</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </form>
+                        </div>
+                        <% if (answers[comment.ID] && answers[comment.ID].length > 0) { %>
+                            <div class="comment-answer-container">
+                              <!-- Display answer details -->
+                              <div class="comment-user-answers" id="comment-user-answers-<%= comment.ID %>">
+                                <% answers[comment.ID].map((answer, index) => { %>
+                                  <div key={index} class="movie-detail-user-comments-header">
+                                    <!-- Display user information -->
+                                    <img src="<%= answer.Photo || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSAIo-4aFKYXHbRXBR952Dhcg6kyNPM-RVjAsd8rYiw&s' %>" alt="<%= answer.UserName || answer.GuestName %>" class="movie-detail-user-comments-image">
+                                    <div class="movie-detail-user-comments-header-left">
+                                      <p class="movie-detail-user-comments-name"><%= answer.UserName || answer.GuestName %></p>
+                                      <p class="movie-detail-user-comments-date"><%= new Date(answer.Timestamp).toLocaleDateString('tr-TR') %></p>
+                                    </div>
+                                    <div class="movie-detail-user-comments-header-right">
+                                      <h4 class="movie-detail-user-comments-role"><%= answer.RoleName || 'Misafir' %></h4>
+                                    </div>
+                                  </div>
+                                  <div class="movie-detail-user-comments-body">
+                                    <p class="movie-detail-user-comments-text"><%= answer.CommentText %></p>
+                                  </div>
+                                <% }); %>
+                              </div>
+                            </div>
+                          <% } %>
+                        
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="movie-detail-user-comments">
+                    <div class="movie-detail-user-comments-header">
+                        <img src="<%= comment.Photo || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSAIo-4aFKYXHbRXBR952Dhcg6kyNPM-RVjAsd8rYiw&s' %>" alt="<%= comment.UserName %>" class="movie-detail-user-comments-image">
+                        <div class="movie-detail-user-comments-header-left">
+                            <p id="movie-detail-comment-id" name="movie-detail-comment-id" hidden><%= comment.ID %></p>
+                            <p class="movie-detail-user-comments-name"><%= comment.UserName  || comment.GuestName %></p>
+                            <p class="movie-detail-user-comments-date"><%= new Date(comment.Timestamp).toLocaleDateString('tr-TR') %></p>
+                        </div>
+                        <div class="movie-detail-user-comments-header-right">
+                            <h4 class="movie-detail-user-comments-role"><%= comment.RoleName || 'Misafir' %></h4>
+                        </div>
+                    </div>
+                    <div class="movie-detail-user-comments-body">
+                        <p class="movie-detail-user-comments-text"><%= comment.CommentText %></p>
+                    </div>
+                    <div class="movie-detail-user-comments-footer">
+                        <button class="movie-detail-user-comments-answer" onclick="toggleComments('<%= comment.ID %>')"><i class="bi bi-reply"></i> Yanıtla</button>
+                        <button class="movie-detail-user-comments-like" data-comment-like-id="<%= comment.ID %>">
+                            <i class="bi bi-hand-thumbs-up-fill"></i> 
+                            <%= likesAndDislikes[comment.ID][0].LikeCount || 0 %> 
+                        </button>
+                        <button class="movie-detail-user-comments-dislike" data-comment-dislike-id="<%= comment.ID %>">
+                            <i class="bi bi-hand-thumbs-down-fill"></i> 
+                            <%= likesAndDislikes[comment.ID][0].DislikeCount || 0 %> 
+                        </button>
+                    </div>
+                    <div class="show-all-answers">
+                        <button class="show-all-answers-button" onclick="toggleAnswers('<%= comment.ID %>')"><i class="bi bi-caret-down-square"></i> Cevapları Göster</button>
+                        <div class="hidden-answer-section" id="comment-answer-section-<%= comment.ID %>">
+                            <form id="comment-answer-section-form-user" action="/add-comment-answer" method="POST">
+                                <input type="hidden" id="commentId" name="commentId" value="<%= comment.ID %>">
+                                <% if (userID && userName) { %>
+                                    <div class="comment-answer-section-user">
+                                        <div class="comment-answer-section-user-left">
+                                            <textarea class="comment-answer-section-form-textarea" id="commentText" name="commentText" required placeholder="Cevabınız*"></textarea>
+                                        </div>
+                                        <div class="comment-answer-section-user-right">
+                                            <input type="hidden" id="userId" name="userId" value="<%= userID %>">
+                                            <input class="comment-answer-section-form-input" type="hidden" id="guestName" name="guestName" value="<%= userName %>" placeholder="Kullanıcı Adı" disabled>
+                                            <div class="comment-answer-section-button-container">
+                                                <button type="submit" id="answer-submit-button" class="answer-submit-button"><i class="bi bi-reply-all-fill"></i> Cevapla</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } else { %>
+                                    <div class="comment-answer-section-guest">
+                                        <div class="comment-answer-section-guest-left">
+                                            <textarea class="comment-answer-section-form-textarea" id="commentText" name="commentText" required placeholder="Cevabınız*"></textarea>
+                                        </div>
+                                        <div class="comment-answer-section-guest-right">
+                                            <input class="comment-answer-section-form-input" type="text" id="guestName" name="guestName" required placeholder="Adınız*">
+                                            <input class="comment-answer-section-form-input" type="email" id="guestEmail" name="guestEmail" required placeholder="Emailiniz*">
+                                            <div class="comment-answer-section-button-container">
+                                                <button type="submit" id="answer-submit-button" class="answer-submit-button-guest"><i class="bi bi-reply-all-fill"></i> Cevapla</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </form>
+                        </div>
+                        <% if (answers[comment.ID] && answers[comment.ID].length > 0) { %>
+                            <div class="comment-answer-container">
+                              <!-- Display answer details -->
+                              <div class="comment-user-answers" id="comment-user-answers-<%= comment.ID %>">
+                                <% answers[comment.ID].map((answer, index) => { %>
+                                  <div key={index} class="movie-detail-user-comments-header">
+                                    <!-- Display user information -->
+                                    <img src="<%= answer.Photo || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSAIo-4aFKYXHbRXBR952Dhcg6kyNPM-RVjAsd8rYiw&s' %>" alt="<%= answer.UserName || answer.GuestName %>" class="movie-detail-user-comments-image">
+                                    <div class="movie-detail-user-comments-header-left">
+                                      <p class="movie-detail-user-comments-name"><%= answer.UserName || answer.GuestName %></p>
+                                      <p class="movie-detail-user-comments-date"><%= new Date(answer.Timestamp).toLocaleDateString('tr-TR') %></p>
+                                    </div>
+                                    <div class="movie-detail-user-comments-header-right">
+                                      <h4 class="movie-detail-user-comments-role"><%= answer.RoleName || 'Misafir' %></h4>
+                                    </div>
+                                  </div>
+                                  <div class="movie-detail-user-comments-body">
+                                    <p class="movie-detail-user-comments-text"><%= answer.CommentText %></p>
+                                  </div>
+                                <% }); %>
+                              </div>
+                            </div>
+                          <% } %>
+                        
+                    </div>
+                </div>
+            <% } %>
+        <% }) %>
+    <% } else { %>
+            <p class="movie-detail-user-comments-nocomment">Henüz hiç yorum yok.</p>
+    <% } %>
+<% } %>
+    
+   </div>
+   <script src='/javascripts/add-movie-comment.js'></script>
+   <script src='/javascripts/comment-answers.js'></script>
+   <script src='/javascripts/add-movie-comment-answer-user.js'></script>
+   <script src='/javascripts/add-movie-comment-answer-guest.js'></script>
+   <script src='/javascripts/add-movie-comment-like.js'></script>
+   <script src='/javascripts/add-movie-comment-dislike.js'></script>
+
+   
+
+</body>
+</html>

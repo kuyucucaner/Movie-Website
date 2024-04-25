@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-login.css"  id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-login.css"  id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+</head>
+
+<body>
+    
+    <div class="login-container">
+        <form id="login-form" method="POST" action="/login-user" class="login-form">
+            <h3 class="login-logo"><i class="bi bi-film"></i>  Caner<b class="login-bold">Film</b></h3>
+            <h4 class="login-title">Siteye Giriş Yap</h4>
+        
+            <label class="login-label" for="userName">Kullanıcı Adı:</label>
+            <input class="login-input" type="text" id="userName" name="userName" required placeholder="Kullanıcı Adınız">
+        
+            <label class="login-label" for="password">Şifre:</label>
+            <input class="login-input" type="password" id="password" name="password" required placeholder="Şifreniz">
+
+            <button class="login-button"  type="submit">Giriş Yap</button>
+            <button class="register-button" onclick="goToRegister()" type="submit">Kayıt Ol</button>
+        </form>
+    </div>
+    <script src='/javascripts/login.js'></script>
+    <script src='/javascripts/navigate-to.js'></script>
+    <script src='/javascripts/check-cookies.js'></script>
+    <script src='/javascripts/theme-toggle.js'></script>
+
+
+
+</body>
+</html>

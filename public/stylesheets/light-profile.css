@@ -1,0 +1,311 @@
+body{
+    background-color: #c9c9c9;
+}
+.container {
+    display: flex;
+}
+.profile-container {
+    background-color: #a8a8a8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-height: 500px; 
+    height: 500px;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+.profile-image-container {
+    position: relative;
+}
+
+.update-button {
+    position: absolute;
+    padding: 5px 10px;
+    background-color: #00ffbf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    right: 0; 
+    top: 0; 
+}
+
+.update-button:hover{
+    background-color: #00cc99;
+    color: white;
+
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.profile-name {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00ffbf;
+}
+.contact-strong{
+    color: #00ffbf;
+}
+.contact-person{
+    color:white;
+}
+.profile-job-title {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.contact-info div {
+    margin-bottom: 10px;
+}
+.profile-comment-history{
+    background-color: #a8a8a8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-height: 940px;
+    overflow-y: auto;
+    min-height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ebe7e7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-header,
+.comment-body,
+.comment-footer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.comment-header {
+    justify-content: flex-start;
+}
+
+.comment-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid  gainsboro;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+.comment-commenttext {
+    margin: 0;
+    color: #333;
+    align-self: flex-start; 
+    padding-left: 10px; 
+    padding-bottom: 10px;
+}
+.comment-username {
+    margin: 0;
+    font-weight: bold;
+    color: #00c291;
+    padding-left: 10px; 
+    font-size: 20px;
+}
+
+.comment-timestamp {
+    margin: 0;
+    color: #777;
+    align-self: flex-end;
+    padding-right: 10px; 
+}
+.comment-footer {
+    justify-content: flex-end;
+}
+
+.comment-moviename,
+.comment-username,
+.comment-commenttext,
+.comment-timestamp,
+.comment-like,
+.comment-dislike {
+    margin: 0;
+}
+.comment-photo{
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #ccc; 
+}
+
+.comment-moviename {
+    color: #333;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(177, 177, 177);
+    width: 98%;
+}
+.comment-role {
+    margin-left: auto;
+    margin-right: 10px;
+    font-weight: bold;
+    padding: 4px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+.comment-body{
+    background-color: white;
+}
+
+.comment-commenttext {
+    color: #555;
+}
+
+.comment-timestamp{
+    color: #777;
+}
+
+.comment-like{
+    color: #00c291;
+    margin-right: 10px;
+
+}
+.comment-dislike{
+    color: rgb(196, 4, 4);
+    margin-right: 10px;
+}
+.comment-nocomment{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+.comment-title h3 {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    margin-left:15px;
+}
+.comment-title{
+    display: flex;
+}
+.movie-list {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #dddcdc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-list-body {
+    display: flex;
+    margin-bottom: 7px;
+    align-items: center;
+
+}
+.movie-list-photo{
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #ccc;
+}
+.movie-list-name {
+    text-decoration: none; 
+    color: #333; 
+    font-size: 18px; 
+    font-weight: bold;
+    transition: color 0.3s ease; 
+    text-align: center;
+    margin-left:15px;
+}
+
+.movie-list-name:hover {
+    color: #666;
+}
+
+.show-comments{
+    background-color: rgba(0, 255, 191, 0.6); 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-right: 15px;
+    transition: background-color 0.3s ease; 
+    padding:  20px; 
+    font-weight: bold;
+
+    margin-left:auto;
+}
+.show-comments:hover {
+    background-color: rgb(0, 201, 151); 
+  }
+.show-movies{
+    background-color: rgba(0, 255, 191, 0.6);
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-right: 15px;
+    padding:  20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
+}
+.show-movies:hover {
+    background-color: rgb(0, 201, 151); 
+  }
+  .comment-title{
+    margin-bottom: 10px;
+  }
+  .bi-star-fill {
+    color: #d4c708; 
+  }
+  
+  .bi-film {
+    color: #00c291; 
+  }
+  
+  .bi-calendar3 {
+    color: #00af1d; 
+  }
+  .movie-list-year {
+    margin-left: auto;
+    margin-right: 15px;
+    font-weight: bold;
+}
+.movie-list-rate{
+    margin:15px;
+    font-weight: bold;
+
+}
+.movie-list-imdb{
+    font-weight: bold;
+}

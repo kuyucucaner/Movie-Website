@@ -1,0 +1,114 @@
+.movie-detail-comment-container {
+    background-color: #b6b6b6;
+    border-top: 1px solid rgb(255, 255, 255);
+    padding-bottom:15px;
+  }
+  .movie-detail-comment-header {
+    color: #434343; 
+    padding:15px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    border-bottom: 1px solid white; 
+    margin-bottom: 10px; 
+
+}
+
+.movie-detail-comment-title {
+    margin: 0; 
+}
+
+.movie-detail-comment-length {
+    margin: 0; 
+    padding-right:15px;
+}
+.hidden-answer-section {
+    display: none;
+  }
+/* Form container */
+.comment-answer-section-user,
+.comment-answer-section-guest {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #ffffff;
+}
+
+/* Left side (textarea) */
+.comment-answer-section-user-left,
+.comment-answer-section-guest-left {
+  flex: 1;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+/* Right side (input fields and button) */
+.comment-answer-section-user-right,
+.comment-answer-section-guest-right {
+  display: flex;
+  margin:15px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Textarea */
+.comment-answer-section-form-textarea {
+  width: 96%;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+/* Input fields */
+.comment-answer-section-form-input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.answer-submit-button{
+    padding:10px 15px;
+    border-radius: 4px;
+    background-color: #00ad82;
+    color:white;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+}
+.answer-submit-button:hover{
+    background-color: #019c75;
+}
+.answer-submit-button-guest{
+    padding:3px 25px;
+    border-radius: 4px;
+    background-color: #00ad82;
+    color:white;
+    border: none;
+    cursor: pointer;
+}
+.answer-submit-button-guest:hover{
+    background-color: #019c75;
+}
+.show-all-answers-button {
+  background-color: #cecece;
+  color: #434343; /* Buton metninin rengi beyaz olsun */
+  border: none; /* Kenarlık olmadan */
+  padding: 5px 10px; /* İç boşluğu ayarla */
+  font-weight: bold;
+  border-radius: 5px; /* Köşeleri yuvarla */
+}
+.show-all-answers-button:hover {
+background-color: #c9c9c9;
+cursor: pointer;
+}
+.comment-user-answers{
+  display: none;
+}
+.comment-answer-container{
+  margin:20px;
+  border-left: 2px solid red;
+  }

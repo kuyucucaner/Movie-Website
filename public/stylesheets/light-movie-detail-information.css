@@ -1,0 +1,97 @@
+.movie-detail-information{
+    background-color: #b6b6b6;
+    border-top:1px solid rgb(255, 255, 255);
+}
+.movie-detail-information-title {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+    width: 100%;
+    color: #434343;
+}
+.movie-detail-information-header{
+    margin-left: 15px;
+}
+.movie-detail-information-date{
+    margin-left: auto;
+    margin-right: 20px;
+}
+.movie-detail-information-image {
+    width: 200px;
+    height: auto;
+    margin-left:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.movie-detail-information-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-detail-information-view{
+    padding: 4px 10px;
+    margin-top:20px;
+    margin-left:15px;
+    background-color: #00ce9a;
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+.movie-detail-information-imdb{
+    padding: 4px 10px;
+    margin-top:20px;
+    margin-left:5px;
+    background-color: #00ce9a;
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+.movie-detail-information-rate{
+    padding: 4px 10px;
+    margin-top:20px;
+    margin-left:5px;
+    background-color: #00ce9a;
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+.movie-detail-information-category{
+    padding: 4px 10px;
+    margin-top:20px;
+    margin-left:5px;
+    background-color: #00ce9a;
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+.movie-detail-information-summary{
+    color: #434343;
+    margin-left:15px;
+    font-size: 14px;
+    margin-right: 15px;
+    height: 90px;
+    max-height: 90px;
+    overflow-y: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.movie-detail-information-actors{
+    color: #434343;
+    margin-left: 15px;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}.movie-detail-information-director{
+    color: #434343;
+    margin-left: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}.movie-detail-information-year{
+    color: #434343;
+    margin-left: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}.movie-detail-information-country{
+    color: #434343;
+    margin-left: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#film-icon{
+    color: white;
+}

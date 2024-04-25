@@ -1,0 +1,44 @@
+body {
+  background-color: #6d6d6d;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-detail-container {
+  background-color: #3f3f3f;
+  margin-top: 20px;
+  width: 100%;
+  min-width: 1120px;
+  max-width: 1120px;
+  min-height: 1163px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+.movie-video-whole {
+  background-color: #4d4d4d;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 30px;
+}
+
+.movie-detail-title {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  padding-left: 35px;
+  padding-right: 35px;
+  position: relative;
+  top: 15px;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.bi-camera-reels-fill {
+  color: #00c291;
+}

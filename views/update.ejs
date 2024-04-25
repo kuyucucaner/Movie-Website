@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-update.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-update.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+</head>
+<body>
+    <%- include('../views/partials/navbar') %>
+    <%- include('../views/partials/categories') %>
+    <div class="update-profile-container">
+        <img src="<%= person.Photo  || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyQTZG-jZDS3gQwUUIaU4Ir_r7IcldQ-F_7Q&usqp=CAU' %>" alt="Profil Resmi" id='previewImage' class="update-profile-picture">
+        <div class="update-contact-info">
+            <form id="updateProfileForm" action="/profile-update" method="POST" enctype="multipart/form-data">
+                <div class="file-input-wrapper">
+                    <label for="photo" class="update-label">Profil Resmi Seç</label>
+                    <input type="hidden" id="existingPhoto" name="existingPhoto" value="<%= person.Photo || null %>">
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </div>                
+                <div>
+                    <label for="name" class="update-label"><strong>Ad:</strong></label>
+                    <input type="text" id="name" name="name" value="<%= person.Name || '' %>">
+                </div>
+                <div>
+                    <label for="lastName" class="update-label"><strong>Soyad:</strong></label>
+                    <input type="text" id="lastName" name="lastName" value="<%= person.LastName || '' %>">
+                </div>
+                <div>
+                    <label for="email" class="update-label"><strong>Email:</strong></label>
+                    <input type="email" id="email" name="email" value="<%= person.Email || '' %>">
+                </div>
+                <div>
+                    <label for="userName" class="update-label"><strong>Kullanıcı Adı:</strong></label>
+                    <input type="text" id="userName" name="userName" value="<%= person.UserName %>" >
+                </div>
+                <button type="submit" id="submitButton">Güncelle</button>
+            </form>
+        </div>
+    </div>
+    <script src='/javascripts/navigate-to.js'></script>
+    <script src='/javascripts/update-profile.js'></script>
+    <script src='/javascripts/check-cookies.js'></script>
+
+
+</body>
+</html>

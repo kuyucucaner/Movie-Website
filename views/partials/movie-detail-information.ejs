@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-information.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-information.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+
+</head>
+<body>
+    <div class="movie-detail-information">
+        <div class="movie-detail-information-title">
+            <h3 class="movie-detail-information-header"><i class="bi bi-info-circle-fill"></i> Film Bilgileri</h3>
+            <h4 class="movie-detail-information-date">Eklenme Tarihi : <%= new Date(movie.MoviePublishDate).toLocaleDateString('tr-TR') %></h4>
+        </div>
+        <div class="movie-detail-information-wrapper">
+        <div class="movie-detail-information-image-container">
+            <img src="<%= movie.MovieImage%>" alt="<%= movie.MovieName%>" class="movie-detail-information-image">
+        </div>
+        <div class="movie-detail-information-knowledge">
+            <button class="movie-detail-information-view"><i class="bi bi-eye-fill"></i> <%= movie.MovieViews %> İzlenme</button>
+            <button class="movie-detail-information-imdb"><i class="bi bi-star-fill"></i> IMDB : <%= movie.MovieIMDB %></button>
+            <button class="movie-detail-information-rate"><i class="bi bi-film" id="film-icon"></i> CanerFilm : <%= movie.MovieRate %></button>
+            <button class="movie-detail-information-category"> <%= movie.CategoryName %></button>
+            <p class="movie-detail-information-summary">Film Hakkında : <%= movie.MovieSummary %></p>
+            <h5 class="movie-detail-information-actors">
+                <i class="bi bi-people-fill"></i> Oyuncular :
+                <a  class="movie-detail-information-actors"  target="_blank" href="https://tr.wikipedia.org/wiki/<%= movie.MovieActorFirst %>"><%= movie.MovieActorFirst %></a>
+                <% if (movie.MovieActorSecond) { %>
+                    , <a class="movie-detail-information-actors" target="_blank"  href="https://tr.wikipedia.org/wiki/<%= movie.MovieActorSecond %>"><%= movie.MovieActorSecond %></a>
+                <% } %>
+                <% if (movie.MovieActorThird) { %>
+                    , <a class="movie-detail-information-actors" target="_blank"href="https://tr.wikipedia.org/wiki/<%= movie.MovieActorThird %>"><%= movie.MovieActorThird %></a>
+                <% } %>
+                <% if (movie.MovieActorFourth) { %>
+                    , <a class="movie-detail-information-actors" target="_blank" href="https://tr.wikipedia.org/wiki/<%= movie.MovieActorFourth %>"><%= movie.MovieActorFourth %></a>
+                <% } %>
+            </h5>            
+            <h5 class="movie-detail-information-director"><i class="bi bi-person-fill"></i> Yönetmen : <%= movie.MovieDirector %></h5>
+            <h5 class="movie-detail-information-year"><i class="bi bi-calendar-date"></i> Yapım Yılı : <%= movie.MovieYear %></h5>
+            <h5 class="movie-detail-information-country"><i class="bi bi-globe-americas"></i> Ülke : <%= movie.MovieCountry %></h5>
+   
+        </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

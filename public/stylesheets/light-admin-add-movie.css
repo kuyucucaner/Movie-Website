@@ -1,0 +1,132 @@
+body{
+    background-color: #c9c9c9;
+}
+.add-movie-container {
+    background-color: #a8a8a8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    margin: 50px auto;
+
+}
+.prevStep2 ,.prevStepFinal{
+    margin-bottom:15px;
+}
+.add-movie-picture {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: 2px solid #b3b3b3; 
+}
+.add-movie-form-container {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.add-movie-form-container div {
+    margin-bottom: 10px;
+}
+
+
+.add-movie-form-container input[type="text"],
+.add-movie-form-container input[type="email"],
+.add-movie-form-container input[type="number"],
+.add-movie-form-container textarea,
+.add-movie-form-container select,
+.add-movie-form-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-movie-form-container input[type="file"] {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fcfcfc;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+.add-movie-page-counter {
+    position: absolute;
+    top:160px;
+    left:960px;
+    margin: 10px;
+    color: white;
+}
+.add-movie-form-container button {
+    width: 100%;
+    padding: 5px 15px;
+    background-color: #00d49f;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+
+.add-movie-form-container textarea {
+    resize: none; 
+    width: 100%;
+    height: 100px; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-movie-form-container button:hover {
+    background-color: #03c997;
+}
+.add-movie-form-container input[type="file"] {
+    display: none; 
+    
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-input-wrapper input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+
+}
+.add-movie-label{
+    color: white;
+}
+.file-input-wrapper label {
+    display: inline-block;
+    padding: 5px 15px;
+    text-align: center;
+    background-color: #3cd8b1;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 370px;
+    transition: background-color 0.3s ease;
+
+}
+
+.file-input-wrapper label:hover {
+    background-color: #1ad8a8;
+}

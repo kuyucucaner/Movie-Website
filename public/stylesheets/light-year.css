@@ -1,0 +1,56 @@
+.year-container {
+    margin-top: 20px;
+    width: 97%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #a8a8a8;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.year-group {
+    width: 100%;
+    max-height: 178px; 
+    overflow: auto; 
+}
+
+.year-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.year-title{
+    margin: 15px;
+    font-size: 18px;
+    color: #353535;
+    border-bottom: 1px solid #f0f0f0;
+    width: 90%;
+}
+.year-item {
+    padding: 6px 14px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 5px;
+    width: 160px; 
+text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+    margin-bottom: 9.5px;
+}
+
+.year-item:hover {
+    background-color: #00c291;
+    color: #fff;
+}
+.bi-list{
+    color:#00ffbf;
+}
+.bi-calendar4{
+    color:#00ffbf;
+}

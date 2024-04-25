@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-button.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-button.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+
+</head>
+
+<body>
+    <div class="movie-video-button-container">
+        <div class="movie-video-link-container">
+            <button class="movie-video-link-button">Fragman</button>
+        </div>
+        <div class="movie-video-tool-container">
+            <button class="movie-video-tool-button" id="cinema-mode-toggle"><i class="bi bi-lightbulb-fill"></i> Sinema Modu</button>
+            <button class="movie-video-tool-button" id="openModal"><i class="bi bi-flag-fill"></i> Hata Bildir</button>
+            <button class="movie-video-tool-button" id="add-list-button"><i class="bi bi-patch-plus-fill"></i> Listeye Ekle</button>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form id="contactForm" action="/send-mail" method="POST">
+            <label class="contact-label" for="name">Adınız :</label>
+            <input class="contact-input" type="text" id="name" name="name" required placeholder="Adınız*">
+            <label class="contact-label" for="email">Email :</label>
+            <input class="contact-input" type="email" id="email" name="email" required placeholder="Emailiniz*">
+            <label class="contact-label" for="message">Mesajınız :</label>
+            <textarea class="contact-textarea" id="message" name="message" required placeholder="Hatayı Bildiriniz*"></textarea>
+            <button type="submit" class="submitButton">Gönder</button>
+          </form>
+        </div>
+      </div>
+    <script src='/javascripts/movie-cinema-mode.js'></script>
+    <script src='/javascripts/report-error.js'></script>
+    <script src='/javascripts/error-mail.js'></script>
+    <script src='/javascripts/add-user-movie-list.js'></script>
+
+    
+
+
+</body>
+</html>

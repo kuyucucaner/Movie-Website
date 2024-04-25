@@ -1,0 +1,117 @@
+.movie-detail-comment-user {
+    display: flex;
+    align-items: center; 
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-bottom: 40px;
+    margin-top: 20px;
+}
+.movie-detail-comment-user-left {
+    width: 70%;
+    margin-right: 50px; 
+}
+.movie-detail-comment-user-right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.movie-detail-comment-form-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; 
+}
+.movie-detail-comment-form-container{
+        border-bottom : 1px dashed   #ccc
+
+}
+.movie-detail-comment-form-input[disabled] {
+    background-color: #f0f0f0; 
+    color: #666666; 
+    height: 25px;
+    margin-bottom: 10px; 
+    border-radius: 4px;
+    border: 1px solid #cccccc; 
+    padding: 3px;
+}
+.submit-button {
+    padding: 10px 20px;
+    background-color: #00ad82;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+
+}
+
+.submit-button:hover {
+    background-color: #008563;
+}
+
+.movie-detail-comment-guest {
+    display: flex;
+    align-items: center; 
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-bottom: 40px;
+    margin-top: 20px;
+}
+.movie-detail-comment-guest-left {
+    width: 70%;
+    margin-right: 50px; 
+}
+.movie-detail-comment-guest-right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.movie-detail-comment-form-input{
+    background-color: #f0f0f0; 
+    color: #666666; 
+    height: 25px;
+    margin-bottom: 10px; 
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    padding: 3px;
+}
+.movie-detail-comment-button-container{
+    display: flex;
+    align-items: center;
+}
+
+.spoiler-checkbox-input {
+    display: none; 
+  }
+  
+  .spoiler-checkbox-label {
+    display: inline-block;
+    cursor: pointer; 
+    font-weight: bold;
+    vertical-align: middle; /* Etiketi dikey olarak hizalar */
+    margin-right:30px;
+    color:#fff;
+  }
+  
+  .spoiler-checkbox-label:before {
+    content: ""; 
+    width: 20px;
+    height: 20px;
+    display: inline-block; 
+    vertical-align: middle; /* İkonu dikey olarak hizalar */
+    line-height: 20px; 
+    text-align: center; 
+    border: 1px solid #999;
+    background-color: #f8f8f8;
+    border-radius: 4px; 
+    margin-right: 10px; 
+  }
+  
+  /* Seçili durumda özel checkbox stilini güncelle */
+  .spoiler-checkbox-input:checked + .spoiler-checkbox-label:before {
+    background-color: #00d39e; /* Seçildiğinde arka plan rengi */
+    content: "\2714"; /* Onay işareti (✓) */
+    color: #fff; /* Seçildiğinde metin rengi */
+  }

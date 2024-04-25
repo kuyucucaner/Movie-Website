@@ -1,0 +1,113 @@
+.movie-detail-user-comments{
+    background-color: #cccccc;
+    margin:20px;
+    border-radius: 4px;
+}
+.movie-detail-user-comments-header{
+    border-bottom: 1px solid #ffffff;
+    padding: 10px;
+    align-items: center; 
+    display: flex;
+}
+.movie-detail-user-comments-header-left {
+    display: flex;
+    flex-direction: column; 
+}
+.movie-detail-user-comments-header-right {
+    margin-left: auto; 
+}
+.movie-detail-user-comments-image {
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-right: 15px; 
+    border: 1px solid rgb(68, 68, 68);
+}
+
+.movie-detail-user-comments-name {
+    margin: 0;
+    font-weight: bold; 
+    color: #302f2f;
+}
+
+.movie-detail-user-comments-date {
+    margin: 0;
+    color: #333333; 
+}
+
+.movie-detail-user-comments-role {
+    margin: 5px 0; 
+    font-size: 14px; 
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #0ac798;
+    padding: 10px;
+    border-radius: 16px;
+    color: #00af83;
+    background-color: #d4d4d4;
+}
+.movie-detail-user-comments-text{
+    color: rgb(75, 75, 75);
+    font-family: 'Courier New', Courier, monospace;
+}
+.movie-detail-user-comments-body{
+    border-bottom: 1px solid #ffffff;
+    height:70px;
+    max-height: 70px;
+    overflow-y: auto;
+    padding-left: 10px;
+}
+
+.movie-detail-user-comments-footer{
+    padding: 10px;
+    align-items: center; 
+    display: flex;
+    background-color: #cecece;
+}
+.movie-detail-user-comments-footer-right {
+    margin-left: auto; 
+}
+.movie-detail-user-comments-answer{
+    padding:5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #afafaf;
+    transition: background-color 0.3s ease; 
+
+}
+.movie-detail-user-comments-answer:hover{
+    background-color: #9b9b9b;
+}
+.movie-detail-user-comments-like {
+    padding: 5px 10px;
+    margin-left: auto;
+    font-size: 13px;
+    background-color: #afafaf;
+    border-bottom: 2px solid rgb(1, 219, 1);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .movie-detail-user-comments-like:hover{
+    background-color: #9b9b9b;
+  }
+  .movie-detail-user-comments-dislike {
+    padding: 5px 10px;
+    margin-left: 7px;
+    background-color: #afafaf;
+    border-bottom: 2px solid rgb(180, 0, 0);
+    color: #fff;
+    margin-right: 10px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .movie-detail-user-comments-dislike:hover{
+    background-color: #9b9b9b;
+  }
+  .movie-detail-user-comments-nocomment{
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+  }

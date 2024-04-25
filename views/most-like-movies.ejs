@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-most-like-movies.css"  id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-most-like-movies.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+</head>
+
+<body>
+    <%- include('../views/partials/navbar') %>
+    <%- include('../views/partials/categories') %>
+    <%- include('../views/partials/favorite') %>
+    <div class="movie-container">
+        <div class="left-container">
+            <div class="most-like-movies-container">
+                <b class="most-like-movies-title"> <i class="bi bi-hand-thumbs-up-fill"></i> En Çok Beğenilen Filmler</b>
+                <div class="movies-container" id="movies-container"></div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+        <%- include('../views/partials/filter-year-genre') %>
+
+    </div>
+    <%- include('../views/partials/footer') %>
+    <script src='/javascripts/most-like-movies.js'></script>
+
+
+
+</body>
+
+</html>

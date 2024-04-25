@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-movie-detail-recommend.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-movie-detail-recommend.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+
+</head>
+<body>
+    <div class="movie-detail-recommend-container">
+        <h3 class="movie-detail-recommend-header"><i class="bi bi-ui-checks"></i> Önerilen Filmler</h3>
+
+        <% recommend.slice(0, 5).forEach(recommendItem => { %>
+            <div class="movie-detail-recommend-movie">
+                <img src="<%= recommendItem.MovieImage %>" alt="<%= recommendItem.MovieName %>" class="movie-detail-recommend-image">
+                <div class="movie-detail-recommend-movie-name"><%= recommendItem.MovieName %></div>
+                <div class="movie-detail-recommend-movie-type">
+                <% if (recommendItem.MovieType === 'Türkçe Dublaj') { %>
+                    <i class="bi bi-translate"></i> <%= recommendItem.MovieType %>
+                    <% } else if (recommendItem.MovieType === 'Türkçe Altyazılı') { %>
+                        <i class="bi bi-badge-cc-fill"></i> <%= recommendItem.MovieType %>
+                    <% } else if (recommendItem.MovieType === 'Dublaj & Altyazılı') { %>
+                        <i class="bi bi-badge-cc-fill"></i> <i class="bi bi-translate"></i> <%= recommendItem.MovieType %>
+                    <% } %>
+                </div>
+                <div class="movie-detail-recommend-movie-imdb"><i class="bi bi-star"></i>  <%= recommendItem.MovieIMDB %></div>
+                <div class="movie-detail-recommend-movie-rate"><i class="bi bi-film"></i> <%= recommendItem.MovieRate %></div>
+                <div class="movie-detail-recommend-movie-year"><i class="bi bi-calendar3"></i> <%= recommendItem.MovieYear %></div>
+                <a href="/movie-detail/<%= recommendItem.ID %>" class="play-button"><i class="bi bi-play-circle"></i></a>
+                
+            </div>
+        <% }); %>
+    </div>
+    <script src='/javascripts/movie-detail-recommend.js'></script>
+
+    
+</body>
+</html>

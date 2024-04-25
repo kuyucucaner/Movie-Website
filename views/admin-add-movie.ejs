@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-admin-add-movie.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-admin-add-movie.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+</head>
+<body>
+    <%- include('../views/partials/navbar') %>
+    <%- include('../views/partials/categories') %>
+    <div class="add-movie-container">
+        <img src="<%= '/images/addmovie.png' %>" alt="Profil Resmi" id='previewImage' class="add-movie-picture">
+        <div class="add-movie-form-container">
+            <form id="add-movie-form" action="/add-movie" method="POST" enctype="multipart/form-data">
+                <div id="step1">
+                    <h2 class="add-movie-page-counter">1/3</h2>
+                    <!-- Adım 1 -->
+                    <div class="file-input-wrapper">
+                        <label for="photo" class="add-movie-label">Film Fotoğrafı Ekle</label>
+                        <input type="hidden" id="existingPhoto" name="existingPhoto" value="">
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                    </div>
+                    <div>
+                        <input type="text" id="add-movie-trailer" name="add-movie-trailer" value="" placeholder="YouTube Trailer URL*" required>
+                    </div> 
+                    <div>
+                        <input type="text" id="add-movie-first-video" name="add-movie-first-video" value="" placeholder="İlk video URL'sini ekleyin" >
+                    </div>
+                    <div>
+                        <input type="text" id="add-movie-second-video" name="add-movie-second-video" value="" placeholder="İkinci video URL'sini ekleyin" >
+                    </div>
+                    <div>
+                        <input type="text" id="add-movie-third-video" name="add-movie-third-video" value="" placeholder="Üçüncü video URL'sini ekleyin" >
+                    </div>
+                    <button type="button" id="nextStep1">İleri</button>
+                </div> 
+                <div id="step2" style="display: none;">
+                    <h2 class="add-movie-page-counter">2/3</h2>
+                    <!-- Adım 2 -->
+                    <div>
+                        <input type="text" id="add-movie-name" name="add-movie-name" value="" placeholder="Filmin Adı*" required >
+                    </div>
+                    <div>
+                        <select id="add-movie-category" name="add-movie-category" required>
+                            <option  value="" selected disabled>Filmin Kategorisi*</option>
+                            <option value="1">Aile Filmleri</option>
+                            <option value="2">Aksiyon Filmleri </option>
+                        <option value="3">Animasyon Filmleri </option>
+                        <option value="4">Belgeseller</option>
+                        <option value="5">Bilim Kurgu Filmleri</option>
+                        <option value="6">Blu Ray Filmler </option>
+                        <option value="7">Çizgi Filmler</option>
+                        <option value="8">Dram Filmleri</option>
+                        <option value="9">Fantastik Filmler</option>
+                        <option value="10">Gerilim Filmleri</option>
+                        <option value="11">Gizem Filmleri</option>
+                        <option value="12">Komedi Filmleri</option>
+                        <option value="13">Korku Filmleri</option>
+                        <option value="14">Macera Filmleri</option>
+                        <option value="15">Müzikal Filmler</option>
+                        <option value="16">Polisiye Filmleri</option>
+                        <option value="17">Psikolojik Filmler</option>
+                        <option value="18">Romantik Filmler</option>
+                        <option value="19">Savaş Filmleri</option>
+                        <option value="20">Suç Fimleri</option>
+                        <option value="21">Tarih Filmleri</option>
+                        <option value="22">Western Filmler</option>
+                        <option value="23">Yerli Filmler</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="add-movie-type" name="add-movie-type" required>
+                        <option  value="" selected disabled>Filmin Dili*</option>
+                            <option value="1">Türkçe Dublaj</option>
+                            <option value="2">Türkçe Altyazılı</option>
+                            <option value="3">Dublaj & Altyazılı</option>
+                    </select>
+                </div>   
+                <div>
+                    <input type="number" id="add-movie-year" name="add-movie-year" min="1900" max="2099" placeholder="Filmin Yılı*" required>
+                </div>  
+                <div>
+                    <input type="number" id="add-movie-imdb" name="add-movie-imdb" min="0" max="10" step="0.1" placeholder="Filmin IMDB'si*" required>
+                </div>  
+                <div>
+                    <input type="number" id="add-movie-rate" name="add-movie-rate" min="0" max="10" step="0.1" placeholder="Filmin Site IMDB'si*" required>
+                </div> 
+                <div>
+                    <textarea class="add-movie-summary" id="add-movie-summary" name="add-movie-summary" required placeholder="Filmin Özeti*"></textarea>
+                </div>  
+                <div>
+                    <input type="text" id="add-movie-director" name="add-movie-director" value="" placeholder="Filmin Yönetmeni*" required >
+                </div>  
+                <button type="button" id="prevStep2" class="prevStep2">Geri</button>
+                <button type="button" id="nextStep2">İleri</button>
+            </div>
+
+            <div id="stepFinal" style="display: none;">
+                <h2 class="add-movie-page-counter">3/3</h2>
+                <!-- Son adım -->
+                <div>
+                    <input type="text" id="add-movie-first-actor" name="add-movie-first-actor" value="" placeholder="Filmin Birinci Oyuncusu*" required >
+                </div>
+                <div>
+                    <input type="text" id="add-movie-second-actor" name="add-movie-second-actor" value="" placeholder="Filmin İkinci Oyuncusu*" required >
+                </div>
+                <div>
+                    <input type="text" id="add-movie-third-actor" name="add-movie-third-actor" value="" placeholder="Filmin Üçüncü Oyuncusu*" required >
+                </div>
+                <div>
+                    <input type="text" id="add-movie-fourth-actor" name="add-movie-fourth-actor" value="" placeholder="Filmin Dördüncü Oyuncusu*" required >
+                </div>
+                <div>
+                    <input type="text" id="add-movie-fourth-country" name="add-movie-fourth-country" value="" placeholder="Filmin Yayınlandığı Ülke*" required >
+                </div>
+                <div>
+                    <select id="add-movie-favorite" name="add-movie-favorite" required>
+                        <option  value="" selected disabled>Film Favorilere Eklensin mi?*</option>
+                        <option value="0">Hayır</option>
+                        <option value="1">Evet</option>
+                    </select>
+                </div>
+                <button type="button" id="prevStepFinal" class="prevStepFinal">Geri</button>
+                <button type="submit" id="submitButton">Filmi Ekle</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src='/javascripts/navigate-to.js'></script>
+    <script src='/javascripts/admin-add-movie.js'></script>
+    <script src='/javascripts/check-cookies.js'></script>
+
+</body>
+</html>

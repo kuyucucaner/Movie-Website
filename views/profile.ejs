@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/dark-profile.css" id="dark-theme-style" class="dark-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/light-profile.css" id="light-theme-style" class="light-theme-style">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/scroll-bar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Caner Film</title>
+</head>
+<body>
+    <%- include('../views/partials/navbar') %>
+    <%- include('../views/partials/categories') %>
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-image-container">
+                <img src="<%= person.Photo || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyQTZG-jZDS3gQwUUIaU4Ir_r7IcldQ-F_7Q&usqp=CAU' %>" alt="Profil Resmi" class="profile-picture">
+                <button class="update-button" onclick="goToUpdate()"><i class="bi bi-pencil"></i></button>
+            </div>
+            <div class="profile-info">
+                <div class="profile-name"> <%= person.Name ? person.Name : 'Ad' %> <%= person.LastName ? person.LastName : 'Soyad' %></div>
+                <% if (person.RoleID === 1) { %>
+                    <div class="profile-job-title">Admin</div>
+                <% } else if (person.RoleID === 2) { %>
+                    <div class="profile-job-title">Kullanıcı</div>
+                <% } else if (person.RoleID === 3) { %>
+                    <div class="profile-job-title">Moderatör</div>
+                <% } else { %>
+                    <div class="profile-job-title">Belirtilmemiş</div>
+                <% } %>
+                <div class="contact-info">
+                    <div class="contact-person"><strong class="contact-strong">Email :</strong> <%= person.Email ? person.Email : 'Bilgi yok' %></div>
+                    <div class="contact-person"><strong class="contact-strong">Kullanıcı Adı :</strong> <%= person.UserName %></div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-comment-history">
+            <div class="comment-title">
+                <h3 class="show-comments-text" id="show-comments-text"> <i class="bi bi-chat-dots-fill"></i> Yorumlarım</h3>
+                <h3 class="show-comments-movies" id="show-comments-movies"><i class="bi bi-list-stars"></i> Film Listem</h3>
+                <button id="show-comments" class="show-comments">Yorumlar</button>
+                <button id="show-movies" class="show-movies">Listem</button>
+            </div>
+            <% if (!comment || comment.length === 0) { %>
+                <p>Henüz hiç yorum yok.</p>
+            <% } else { %>
+                <% if (Array.isArray(comment)) { %>
+                    <% comment.forEach(comment => { %>
+                        <div class="comment" id="comment">
+                            <div class="comment-header">
+                                <img class="comment-photo" src="<%= comment.Photo || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyQTZG-jZDS3gQwUUIaU4Ir_r7IcldQ-F_7Q&usqp=CAU' %>">
+                                <p class="comment-username"> <%= comment.UserName %></p>
+                                <p class="comment-role"> <%= comment.RoleName %></p>
+                            </div>
+                            <div class="comment-body">
+                                <p class="comment-moviename"><strong>Film :</strong> <%= comment.MovieName %></p>
+                                <p class="comment-commenttext"><strong>Yorum :</strong> <%= comment.CommentText %></p>
+                                <p class="comment-timestamp"> <%= new Date(comment.Timestamp).toLocaleDateString('tr-TR') %></p>
+                            </div>
+                            <div class="comment-footer">
+                                <p class="comment-like"><strong><i class="bi bi-hand-thumbs-up"></i></strong> <%= likesAndDislikes[comment.ID][0].LikeCount || 0 %> </p>
+                                <p class="comment-dislike"><strong><i class="bi bi-hand-thumbs-down"></i></strong> <%= likesAndDislikes[comment.ID][0].DislikeCount || 0 %> 
+                                </p>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="comment-nocomment">Henüz hiç yorum yok.</p>
+                <% } %>
+            <% } %> 
+            <% if (!movies || movies.length === 0) { %>
+                <p>Listeye Eklenen Film Yok.</p>
+            <% } else { %>
+                <% if (Array.isArray(movies)) { %>
+                    <% movies.forEach(movies => { %>
+                        <div class="movie-list" id="movie-list">
+                            <div class="movie-list-body">
+                                <img class="movie-list-photo" src="<%= movies.MovieImage %>">
+                                <a href="/movie-detail/<%= movies.ID %>" class="movie-list-name"><%= movies.MovieName %> </a>
+                                <p class="movie-list-year"><i class="bi bi-calendar3"></i> <%= movies.MovieYear %></p>
+                                <p class="movie-list-rate"><i class="bi bi-film"></i> <%= movies.MovieRate %></p>
+                                <p class="movie-list-imdb"><i class="bi bi-star-fill"></i> <%= movies.MovieIMDB %></p>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="comment-nocomment">Listeye Eklenen Film Yok.</p>
+                <% } %>
+            <% } %> 
+        </div>
+    </div>
+    <script src='/javascripts/navigate-to.js'></script>
+    <script src='/javascripts/check-cookies.js'></script>
+    <script src='/javascripts/show-buttons.js'></script>
+
+
+</body>
+</html>
