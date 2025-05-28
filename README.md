@@ -2,7 +2,7 @@
 
 **Movie Website** is a dynamic, full-featured film platform where users can register, browse, and interact with a collection of movies.  
 The system supports both regular users and admin roles, offering features like adding films, liking, commenting, and more.  
-The application uses Access & Refresh Tokens for secure authentication and a relational database for storage.
+The application uses Access & Refresh Tokens for secure authentication and a relational database for storage. 
 
 ---
 
